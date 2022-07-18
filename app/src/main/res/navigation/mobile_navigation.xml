@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/homePagerFragment1"
+        android:name="developer.abdulaziz.mydictionary.Fragments.ItemFragments.HomePagerFragment1"
+        android:label="fragment_home_pager1"
+        tools:layout="@layout/fragment_home_pager1" />
+    <fragment
+        android:id="@+id/homePagerFragment2"
+        android:name="developer.abdulaziz.mydictionary.Fragments.ItemFragments.HomePagerFragment2"
+        android:label="fragment_home_pager2"
+        tools:layout="@layout/fragment_home_pager2" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/viewPagerItemFragment1"
+        android:name="developer.abdulaziz.mydictionary.Fragments.ItemFragments.ViewPagerItemFragment1"
+        android:label="fragment_view_pager_item1"
+        tools:layout="@layout/fragment_view_pager_item1" />
+    <fragment
+        android:id="@+id/viewPagerItemFragment2"
+        android:name="developer.abdulaziz.mydictionary.Fragments.ItemFragments.ViewPagerItemFragment2"
+        android:label="fragment_view_pager_item2"
+        tools:layout="@layout/fragment_view_pager_item2" />
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" />
+    <fragment
+        android:id="@+id/homeItemFragment"
+        android:name="developer.abdulaziz.mydictionary.Fragments.ItemFragments.HomeItemFragment"
+        android:label="fragment_home_item"
+        tools:layout="@layout/fragment_home_item" />
+</navigation>
