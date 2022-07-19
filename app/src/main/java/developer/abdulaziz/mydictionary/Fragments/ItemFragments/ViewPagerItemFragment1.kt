@@ -57,6 +57,10 @@ class ViewPagerItemFragment1 : Fragment() {
                                 val item = ItemDeleteBinding.inflate(layoutInflater)
                                 item.cancel.setOnClickListener { alertDialog.cancel() }
                                 item.save.setOnClickListener {
+                                    val a = AppDatabase.getInstance(root.context)
+                                    for (i in a.dao().read()) {
+                                        if (i.category == user) a.dao().delete(i)
+                                    }
                                     list.remove(user)
                                     MyObject.sharedList = list
                                     myRvAdapter1.notifyItemRemoved(position)
