@@ -12,7 +12,6 @@ import developer.abdulaziz.mydictionary.Adapters.MyRvAdapter1
 import developer.abdulaziz.mydictionary.Object.MyObject
 import developer.abdulaziz.mydictionary.R
 import developer.abdulaziz.mydictionary.Room.AppDatabase
-import developer.abdulaziz.mydictionary.Room.Entity.MyRoom
 import developer.abdulaziz.mydictionary.databinding.FragmentViewPagerItem1Binding
 import developer.abdulaziz.mydictionary.databinding.ItemAddCategoryBinding
 import developer.abdulaziz.mydictionary.databinding.ItemDeleteBinding
@@ -28,6 +27,7 @@ class ViewPagerItemFragment1 : Fragment() {
         binding.apply {
             MyObject.init(root.context)
             val list = MyObject.sharedList
+            val a = AppDatabase.getInstance(root.context)
             myRvAdapter1 = MyRvAdapter1(list, object : MyRvAdapter1.MyPopup {
                 override fun onClick(view: View, user: String, position: Int) {
                     val popupMenu = PopupMenu(root.context, view)
@@ -41,6 +41,12 @@ class ViewPagerItemFragment1 : Fragment() {
                                 item.cancel.setOnClickListener { alertDialog.cancel() }
                                 item.save.setOnClickListener {
                                     if (item.kategoryName.text.toString().isNotEmpty()) {
+                                        for (i in a.dao().read()) {
+                                            if (i.category == user) {
+                                                i.category = item.kategoryName.text.toString()
+                                                a.dao().update(i)
+                                            }
+                                        }
                                         list[position] = item.kategoryName.text.toString()
                                         MyObject.sharedList = list
                                         myRvAdapter1.notifyItemChanged(position)
@@ -57,7 +63,6 @@ class ViewPagerItemFragment1 : Fragment() {
                                 val item = ItemDeleteBinding.inflate(layoutInflater)
                                 item.cancel.setOnClickListener { alertDialog.cancel() }
                                 item.save.setOnClickListener {
-                                    val a = AppDatabase.getInstance(root.context)
                                     for (i in a.dao().read()) {
                                         if (i.category == user) a.dao().delete(i)
                                     }
